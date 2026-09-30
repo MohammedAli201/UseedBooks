@@ -49,7 +49,7 @@ public static class HostingExtensions
                 x.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("/uVxQ~NyP}w0A=$<FQ;4;`rXI\\'9]7wb<(yB")),
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SigningKey"] ?? throw new InvalidOperationException("Set Jwt__SigningKey in the environment."))),
                     ValidateIssuer = false,
                     ValidateAudience = false
                 };
